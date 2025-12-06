@@ -29,14 +29,42 @@ Fun color memory game built with JS logic.
 ## 🖼️ Screenshots
 
 ### Home Section
-![Home](assets/images/home.png)
+![Home](images/home.PNG)
 
-### About / Skills
-![About](assets/images/about.png)
+### About Section
+![About](images/about.PNG)
 
-### Projects
-![Projects](assets/images/projects.png)
+### Projects Section
+![Projects](images/projects.PNG)
 
-### Contact
-![skills](assets/images/contact.png)
+### Skills Section
+![Skills](images/skills.PNG)
+
+---
+## 🚀 Live Demo
+🔗 [View My Portfolio](https://your-portfolio.vercel.app)
+
+## 🛠️ Tech Stack & Tools
+
+- 🌐 **HTML5**  
+- 🎨 **CSS3** (Flexbox, Grid, Animations)  
+- 💻 **JavaScript (ES6+)**  
+- ⚡ **Responsive Design Techniques**  
+- 🖼️ **Images & Assets Management**  
+- 📧 **Email Integration** (Contact form)  
+- 💬 **WhatsApp API / Links**  
+- 📄 **Resume Integration / Download**  
+- 🔤 **Google Fonts** (Custom Typography)  
+
+
+
+## 📬 Contact
+
+📧 Email: memonduaa544@gmail.com  
+🔗 LinkedIn: [Dua Ali Memon](https://www.linkedin.com/in/dua-alee-memon-a9b0a72a6/)  
+🐙 GitHub: [DuaAliMemon](https://github.com/Duaalimemon)
+
+---
+## 📝 License
+© 2025 Dua Ali Memon — All Rights Reserved.
 
