@@ -42,7 +42,7 @@ Fun color memory game built with JS logic.
 
 ---
 ## 🚀 Live Demo
-🔗 [View My Portfolio](https://your-portfolio.vercel.app)
+🔗 [View My Portfolio](http://my-portfolio-three-tau-61.vercel.app/)
 
 ## 🛠️ Tech Stack & Tools
 
