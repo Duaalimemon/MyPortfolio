@@ -350,7 +350,7 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.4rem;
-  padding:22px  
+  padding:22px;
 }
 
 /* Badge style (reuse from About) */
@@ -550,5 +550,6 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
