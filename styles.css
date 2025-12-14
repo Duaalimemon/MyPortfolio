@@ -517,6 +517,7 @@ footer {
     text-align: center;
     padding: 1.2rem;
     background-color: #1a1a1a;
+    cursor:pointer;
 }
 
 /* Animations */
@@ -562,6 +563,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
