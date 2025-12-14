@@ -346,10 +346,11 @@ section {
 .skills-grid {
   display: flex;
   width:65%;
-  margin:0 auto;  
+  margin:35px auto;  
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.4rem;
+  padding:22px  
 }
 
 /* Badge style (reuse from About) */
@@ -549,4 +550,5 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
