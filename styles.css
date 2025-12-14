@@ -122,7 +122,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    background: url("https://img.freepik.com/free-photo/laptop-with-glowing-screen-table-dark-top-view-copy-space_169016-51607.jpg?semt=ais_hybrid&w=740&q=80") center/cover no-repeat;
+    display: flex;
     position: relative;
 }
 
@@ -550,6 +551,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
