@@ -345,6 +345,8 @@ section {
 /* Grid for badges */
 .skills-grid {
   display: flex;
+  width:65%;
+  margin:0 auto;  
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.4rem;
@@ -547,3 +549,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
