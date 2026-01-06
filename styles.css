@@ -520,6 +520,17 @@ footer {
     cursor:pointer;
 }
 
+.footer-icon{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem .5rem;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .4rem ;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -563,6 +574,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
