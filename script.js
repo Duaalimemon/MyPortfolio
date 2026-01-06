@@ -41,6 +41,7 @@ window.addEventListener("load", () => {
     typingText.innerHTML = "";
     setTimeout(type, 300);
 });
+
 // Navbar burger menu
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
@@ -58,7 +59,6 @@ navLinks.forEach(link => {
         burger.classList.remove('toggle'); // reset burger animation
     });
 });
-
 
 // ======= SMOOTH SCROLL FOR NAV LINKS =======
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -83,29 +83,38 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeElements.forEach(el => fadeObserver.observe(el));
 
-
-
-
-
+// ======= CONTACT FORM (WhatsApp Integration) =======
 const form = document.getElementById('contactForm');
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const name = encodeURIComponent(document.getElementById('name').value.trim());
-  const email = encodeURIComponent(document.getElementById('email').value.trim());
-  const msg = encodeURIComponent(document.getElementById('Message').value.trim());
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const msg = encodeURIComponent(document.getElementById('Message').value.trim());
 
-  // WhatsApp number should be in full international format without + or 00
-  const whatsappNumber = '923026897659'; // 03… becomes 9230… for Pakistan
-  const whatsappMessage = `Hi Dua!%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
+    // WhatsApp number should be in full international format without + or 00
+    const whatsappNumber = '923026897659'; // 03… becomes 9230… for Pakistan
+    const whatsappMessage = `Hi Dua!%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
 
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+    window.open(whatsappURL, '_blank');
+});
 
-    // Theme Toggle Logic
+// ======= THEME TOGGLE LOGIC (Added Here) =======
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) {
+        console.error('Theme toggle button not found! Check HTML.');
+        return;
+    }
+
     const body = document.body;
     const icon = themeToggle.querySelector('i');
+    if (!icon) {
+        console.error('Icon not found in theme toggle!');
+        return;
+    }
 
     // Load saved theme from localStorage or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -122,11 +131,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Update icon
         icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        
+        console.log(`Theme switched to: ${newTheme}`);  // For debugging
     });
+});
 });
 
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   window.open(whatsappURL, '_blank');
 });
+
 
 
