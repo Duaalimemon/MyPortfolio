@@ -100,7 +100,33 @@ form.addEventListener('submit', (e) => {
   const whatsappNumber = '923026897659'; // 03… becomes 9230… for Pakistan
   const whatsappMessage = `Hi Dua!%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
 
+
+    // Theme Toggle Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const icon = themeToggle.querySelector('i');
+
+    // Load saved theme from localStorage or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    body.setAttribute('data-theme', savedTheme);
+    icon.className = savedTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icon
+        icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+    });
+});
+
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   window.open(whatsappURL, '_blank');
 });
+
 
