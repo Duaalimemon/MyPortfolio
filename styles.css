@@ -517,9 +517,11 @@ footer {
     text-align: center;
     padding: 1.2rem;
     background-color: #1a1a1a;
-    cursor:pointer;
 }
 
+footer p{
+cursor:pointer;
+}
 .footer-icon{
     position: relative;
     display: inline-flex;
@@ -574,6 +576,7 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
