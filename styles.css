@@ -13,6 +13,7 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    scroll:smooth;
 }
 
 header {
@@ -573,3 +574,4 @@ footer {
     --hover-color: #0099cc; /* Hover blue */
     --shadow: rgba(0, 212, 255, 0.3); /* Shadow for dark mode */
 }
+
