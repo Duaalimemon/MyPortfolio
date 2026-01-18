@@ -129,6 +129,7 @@ form.addEventListener('submit', async (e) => { // 'async' add kiya hai
 
   } catch (error) {
     console.error("Error:", error);
-    alert("Backend connect nahi ho pa raha!");
+    alert("Error found in connection");
   }
 });
+
