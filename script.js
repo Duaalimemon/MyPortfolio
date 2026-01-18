@@ -101,7 +101,7 @@ form.addEventListener('submit', async (e) => { // 'async' add kiya hai
 
   try {
     // 2. Railway Backend mein data save karein (Database Step)
-    const response = await fetch("https://illustrious-determination-production.up.railway.app/api/contact", {
+    const response = await fetch("https://happy-alignment-production-e006.up.railway.app/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -132,4 +132,5 @@ form.addEventListener('submit', async (e) => { // 'async' add kiya hai
     alert("Error found in connection");
   }
 });
+
 
