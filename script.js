@@ -89,17 +89,46 @@ fadeElements.forEach(el => fadeObserver.observe(el));
 
 const form = document.getElementById('contactForm');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => { // 'async' add kiya hai
   e.preventDefault();
 
-  const name = encodeURIComponent(document.getElementById('name').value.trim());
-  const email = encodeURIComponent(document.getElementById('email').value.trim());
-  const msg = encodeURIComponent(document.getElementById('Message').value.trim());
+  // 1. Data collect karein
+  const formData = {
+    name: document.getElementById('name').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    message: document.getElementById('Message').value.trim()
+  };
 
-  // WhatsApp number should be in full international format without + or 00
-  const whatsappNumber = '923026897659'; // 03… becomes 9230… for Pakistan
-  const whatsappMessage = `Hi Dua!%0AName: ${name}%0AEmail: ${email}%0AMessage: ${msg}`;
+  try {
+    // 2. Railway Backend mein data save karein (Database Step)
+    const response = await fetch("https://illustrious-determination-production.up.railway.app/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-  window.open(whatsappURL, '_blank');
+    if (response.ok) {
+        console.log("Database mein save ho gaya! ✅");
+        
+        // 3. Database mein save hone ke BAAD WhatsApp kholien
+        const nameEnc = encodeURIComponent(formData.name);
+        const emailEnc = encodeURIComponent(formData.email);
+        const msgEnc = encodeURIComponent(formData.message);
+
+        const whatsappNumber = '923026897659'; 
+        const whatsappMessage = `Hi Dua!%0AName: ${nameEnc}%0AEmail: ${emailEnc}%0AMessage: ${msgEnc}`;
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+        
+        window.open(whatsappURL, '_blank');
+        form.reset(); // Form clear kar dein
+    } else {
+        alert("Server error! Please try again.");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Backend connect nahi ho pa raha!");
+  }
 });
