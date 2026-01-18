@@ -354,13 +354,6 @@ section {
   color: #dce6ff;
 }
 
-/* Grid for badges */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.4rem;
-}
 
 /* Badge style (reuse from About) */
 .skills-grid .badge {
@@ -371,6 +364,7 @@ section {
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.1);
   transition: .3s ease;
+  text-align: center;
 }
 
 .skills-grid .badge:hover {
@@ -394,8 +388,8 @@ section {
 /* Desktop par waisa hi rakhein jaisa pehle tha */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
-    gap: 1.4rem;
+    grid-template-columns: repeat(auto-fit, minmax(156px, 1fr)); 
+    gap: 2.4rem;
     justify-content: center;
 }
 
@@ -474,7 +468,7 @@ section {
 .achievements-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 2rem;
   justify-content: center;
 }
 
