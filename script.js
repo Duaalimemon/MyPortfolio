@@ -96,7 +96,7 @@ form.addEventListener('submit', async (e) => { // 'async' add kiya hai
   const formData = {
     name: document.getElementById('name').value.trim(),
     email: document.getElementById('email').value.trim(),
-    message: document.getElementById('Message').value.trim()
+    message: document.getElementById('message').value.trim()
   };
 
   try {
@@ -132,5 +132,6 @@ form.addEventListener('submit', async (e) => { // 'async' add kiya hai
     alert("Error found in connection");
   }
 });
+
 
 
