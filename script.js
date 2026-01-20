@@ -41,21 +41,28 @@ window.addEventListener("load", () => {
     typingText.innerHTML = "";
     setTimeout(type, 300);
 });
-// Navbar burger menu
+
+
+// Select elements
 const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li a');
 
+// Burger click → toggle menu + cross
 burger.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    burger.classList.toggle('toggle');
+    nav.classList.toggle('nav-active');   // Menu open/close
+    burger.classList.toggle('toggle');    // Bars → Cross
+
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = nav.classList.contains('nav-active') ? 'auto' : 'auto';
 });
 
-// Close nav when a link is clicked
+// Close menu when any nav link is clicked
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        nav.classList.remove('active');  // hide menu
-        burger.classList.remove('toggle'); // reset burger animation
+        nav.classList.remove('nav-active');
+        burger.classList.remove('toggle');
+        document.body.style.overflow = 'auto';
     });
 });
 
@@ -85,53 +92,56 @@ fadeElements.forEach(el => fadeObserver.observe(el));
 
 
 
-
-
+// ======= CONTACT FORM SUBMISSION =======
 const form = document.getElementById('contactForm');
+const responseMessage = document.getElementById('responseMessage');
 
-form.addEventListener('submit', async (e) => { // 'async' add kiya hai
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // 1. Data collect karein
-  const formData = {
-    name: document.getElementById('name').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    message: document.getElementById('message').value.trim()
-  };
+  // Form values
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
 
+  if (!name || !email || !message) {
+    alert("Please fill all fields!");
+    return;
+  }
+
+  // --- 1. Send to Backend ---
   try {
-    // 2. Railway Backend mein data save karein (Database Step)
-    const response = await fetch("https://happy-alignment-production-e006.up.railway.app/api/contact", {
+    const res = await fetch("http://localhost:5000/api/contact", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
     });
 
-    if (response.ok) {
-        console.log("Database mein save ho gaya! ✅");
-        
-        // 3. Database mein save hone ke BAAD WhatsApp kholien
-        const nameEnc = encodeURIComponent(formData.name);
-        const emailEnc = encodeURIComponent(formData.email);
-        const msgEnc = encodeURIComponent(formData.message);
+    const data = await res.json();
 
-        const whatsappNumber = '923026897659'; 
-        const whatsappMessage = `Hi Dua!%0AName: ${nameEnc}%0AEmail: ${emailEnc}%0AMessage: ${msgEnc}`;
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-        
-        window.open(whatsappURL, '_blank');
-        form.reset(); // Form clear kar dein
+    if (res.ok) {
+      alert(data.message); // "Contact saved successfully"
+      form.reset();
     } else {
-        alert("Server error! Please try again.");
+      alert(data.error || "Server Error!");
     }
-
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Error found in connection");
+  } catch (err) {
+    console.error("Error submitting form:", err);
+    alert("Server Error!");
   }
+
+  // --- 2. Send WhatsApp Message ---
+  const whatsappNumber = '923026897659'; // Pakistan format without + or 00
+  const whatsappMessage = `Hi Dua!%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AMessage: ${encodeURIComponent(message)}`;
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  window.open(whatsappURL, '_blank');
 });
 
 
-
+function scrollSkills(amount) {
+    document.getElementById('skillsGrid').scrollBy({
+        left: amount,
+        behavior: 'smooth'
+    });
+}
