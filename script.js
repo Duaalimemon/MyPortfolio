@@ -145,3 +145,4 @@ function scrollSkills(amount) {
         behavior: 'smooth'
     });
 }
+
