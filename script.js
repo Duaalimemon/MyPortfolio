@@ -54,7 +54,7 @@ burger.addEventListener('click', () => {
     burger.classList.toggle('toggle');    // Bars → Cross
 
     // Prevent scrolling when menu is open
-    document.body.style.overflow = nav.classList.contains('nav-active') ? 'auto' : 'auto';
+    document.body.style.overflow = nav.classList.contains('nav-active') ? 'hidden' : 'auto';
 });
 
 // Close menu when any nav link is clicked
@@ -145,6 +145,7 @@ function scrollSkills(amount) {
         behavior: 'smooth'
     });
 }
+
 
 
 
