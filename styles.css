@@ -78,28 +78,34 @@ header {
 
 /* Responsive Navbar */
 /* MOBILE BURGER MENU */
-
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   .burger {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
-    height: 22px;
+    height:12px;
     position: fixed;
     top: 26px;
     right: 16px;
     cursor: pointer;
-    z-index: 1008;
+    z-index: 8999;
   }
 
   .burger div {
+    display: flex;
     width: 100%;
-    height: 3px;
+    height:4.3px;
     background: #00d4ff;
     transition: all 0.3s ease;
   }
-
+   
+  .burger .line1{
+    margin-bottom: 3px;
+  }
+  .burger .line2{
+    margin-bottom: 3px;
+  }
   /* Burger → Cross */
   .burger.toggle .line1 {
     transform: rotate(45deg) translate(5px, 6px);
@@ -662,4 +668,5 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
 
