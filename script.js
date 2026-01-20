@@ -111,7 +111,7 @@ form.addEventListener('submit', async (e) => {
 
   // --- 1. Send to Backend ---
   try {
-    const res = await fetch("http://localhost:5000/api/contact", {
+    const res = await fetch("https://localhost:5000/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message }),
@@ -145,4 +145,5 @@ function scrollSkills(amount) {
         behavior: 'smooth'
     });
 }
+
 
