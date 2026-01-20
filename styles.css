@@ -68,7 +68,7 @@ header {
 }
 
 .burger div {
-    display: none;
+    display:none;
     width: 100%;
     height: 3px; /* thickness of lines */
     background-color: #00d4ff;
@@ -662,3 +662,4 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
