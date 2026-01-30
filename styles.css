@@ -761,12 +761,13 @@ footer {
 
 .footer-contact p {
     font-size: 0.9rem;
-    color: #3b82f6;
+    color: #00d4ff;
     margin-bottom: 0.8rem;
     text-align: left;
-    
 }
-
+.footer-contact strong{
+    color:#a0a0a0;
+}
 .status {
     display: flex;
     align-items: center;
@@ -817,4 +818,5 @@ footer {
       margin-top: 1.4rem;
     }
 }
+
 
