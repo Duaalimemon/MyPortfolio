@@ -804,6 +804,9 @@ footer {
 .last{
   margin-top: 2rem;
 }
+.last span{
+    color:#e9eef8;
+}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
